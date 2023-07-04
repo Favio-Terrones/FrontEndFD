@@ -12,6 +12,7 @@ import Administradores from './components/gerente/Administradores'
 import RegistrarSede from './components/gerente/RegistrarSede'
 import Sedes from './components/gerente/Sedes'
 import Reportes from './components/gerente/Reportes'
+
 const App = () => {
   return (
       <>
