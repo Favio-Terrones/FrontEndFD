@@ -78,13 +78,13 @@ const Reportes = () => {
       </form>
       
       
-      <div style={{ width: '500px', height: '400px' }} className='display flex mt-20'>
+      <div style={{ width: '500px', height: '400px' }} className='display flex mt-10'>
       <h2  className='mr-5'>Ventas Totales por Fecha</h2>
       <Bar data={ventasPorFecha} options={options} width={500} height={400} 
-      style={{ width: '400px', height: '300px' }} className='mx-5'/>
+      style={{ width: '500px', height: '400px' }} className='mx-2'/>
       <h2  className='mr-5'>Platillos Más Vendidos</h2>
       <Bar data={platillosMasVendidos}  options={options} width={500} height={400} 
-      style={{ width: '400px', height: '300px' }} />
+      style={{ width: '500px', height: '400px' }} className='mx-2' />
       </div>
     </div>
     )
