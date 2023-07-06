@@ -1,5 +1,6 @@
 import React ,{useState}from 'react';
-
+import { Chart, registerables } from 'chart.js';
+Chart.register(...registerables);
 import { Bar } from 'react-chartjs-2';
 
 const Reportes = () => {
@@ -27,6 +28,14 @@ const Reportes = () => {
         backgroundColor: 'rgba(255, 99, 132, 0.5)', // Color de las barras
       },
     ],
+  };
+
+  const options = {
+    scales: {
+      y: {
+        beginAtZero: true,
+      },
+    },
   };
 
   const handleSubmit = (event) => {
@@ -67,11 +76,15 @@ const Reportes = () => {
         </div>
         
       </form>
-      <div>
-      <h2>Ventas Totales por Fecha</h2>
-      <Bar data={ventasPorFecha} />
-      <h2>Platillos Más Vendidos</h2>
-      <Bar data={platillosMasVendidos} />
+      
+      
+      <div style={{ width: '500px', height: '400px' }} className='display flex mt-20'>
+      <h2  className='mr-5'>Ventas Totales por Fecha</h2>
+      <Bar data={ventasPorFecha} options={options} width={500} height={400} 
+      style={{ width: '400px', height: '300px' }} className='mx-5'/>
+      <h2  className='mr-5'>Platillos Más Vendidos</h2>
+      <Bar data={platillosMasVendidos}  options={options} width={500} height={400} 
+      style={{ width: '400px', height: '300px' }} />
       </div>
     </div>
     )
