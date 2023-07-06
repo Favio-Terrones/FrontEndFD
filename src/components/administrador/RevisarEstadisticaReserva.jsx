@@ -4,27 +4,56 @@ Chart.register(...registerables);
 
 
 const RevisarEstadisticaReserva = () => {
+  const dates = ['2023-01-01', '2023-02-01', '2023-03-01', '2023-04-01', '2023-05-01', '2023-06-01'];
+  const reservations = [12, 19, 3, 5, 2, 3];
+
   const data = {
-    labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio'],
+    labels: dates.map((date) => new Date(date).toLocaleDateString('en-US', { month: 'short', year: 'numeric' })),
     datasets: [
       {
-        label: 'Ventas',
-        data: [12, 19, 3, 5, 2, 3], // Valores de las barras
-        backgroundColor: 'rgba(75,192,192,0.6)', // Color de las barras
+        label: 'Cantidad de reservas',
+        data: reservations,
+        backgroundColor: 'rgba(75,192,192,1)',
       },
     ],
   };
 
-  // Opciones de configuración del gráfico
   const options = {
+    indexAxis: 'x',
     scales: {
-      y: {
+      x:{
+      title:{
+        display: true,
+        text: 'Fechas',
+        font:{
+          weight: 'bold'
+        }
+        },
+      },
+      y: 
+      {
+        title:{
+         display:true,
+         text: 'Cantidad de reservas',
+         font:{
+          weight: 'bold'
+         }
+        },
         beginAtZero: true,
       },
     },
   };
 
-  return <Bar data={data} options={options} />;
+  return (
+   <>
+   <h2 className='text-4xl ml-5 text-red-800 mt-5'>Estadística de Reservas</h2>
+   <div className="">
+    <h2 className="text-right my-2 text-2xl text-red-800  mr-10">La Bisteca </h2> 
+    <h1 className="text-right my-2 text-1xl text-red  mr-10">Pasta & Grill</h1>
+    </div>
+  <Bar data={data} options={options} />;
+   </>
+  )
 }
 
 export default RevisarEstadisticaReserva
