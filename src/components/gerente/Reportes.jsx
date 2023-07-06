@@ -66,12 +66,12 @@ const Reportes = () => {
         </div>
         
       </form>
-      {/* <div>
+      <div>
       <h2>Ventas Totales por Fecha</h2>
       <Bar data={ventasPorFecha} />
       <h2>Platillos Más Vendidos</h2>
       <Bar data={platillosMasVendidos} />
-      </div> */}
+      </div>
     </div>
     )
   }
