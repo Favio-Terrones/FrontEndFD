@@ -12,6 +12,7 @@ import Administradores from './components/gerente/Administradores'
 import RegistrarSede from './components/gerente/RegistrarSede'
 import Sedes from './components/gerente/Sedes'
 import Reportes from './components/gerente/Reportes'
+import AgregarPlatillo from "./components/administrador/AgregarPlatillo"
 
 const App = () => {
   return (
@@ -25,7 +26,10 @@ const App = () => {
                         <Route path="reservas" element={<VisualizarReservas/>}/>
                         <Route path="est-reservas" element={<RevisarEstadisticaReserva/>}/>
                         <Route path="est-platillos" element={<RevisarEstadisticaPlatillo/>}/>
-                    
+                        <Route path="agregar-platillo" element={<AgregarPlatillo/>}/>
+
+                      
+                         
                    </Route>
                    <Route path="gerente" element={<LayoutGerente/>}>
                         <Route path="reg-administrador" element={<RegistrarAdministrador/>}/>
@@ -33,7 +37,7 @@ const App = () => {
                         <Route path="reg-sedes" element={<RegistrarSede/>}/>
                         <Route path="sedes" element={<Sedes/>}/>
                         <Route path="reportes" element={<Reportes/>}/>
-                    
+ 
                    </Route>
                   
               </Routes>
