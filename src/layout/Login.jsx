@@ -1,8 +1,3 @@
-import { useState } from "react";
-import Alerta from "../components/Alerta";
-import axios from "axios";
-import useAuth from "../hooks/useAuth";
-import { useNavigate } from "react-router-dom";
 
 
 const Login = () => {
@@ -96,6 +91,7 @@ const Login = () => {
        </div> 
         <img src="/img/banner2.jpeg" className="w-full h-auto md:h-full mx-auto" />
     </div>
+  
   );
 };
 
