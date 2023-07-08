@@ -1,8 +1,7 @@
-import ListadoReservas from "./ListadoReservas"
 
 const VisualizarReservas = () => {
   return (
-    <div className="mx-auto w-full p-8">
+    <div class="mx-auto w-full p-8">
    
     <div className="">
       <h2 className="text-right my-2 text-2xl text-red-800  mr-10">
@@ -12,34 +11,46 @@ const VisualizarReservas = () => {
         Pasta & Grill
       </h1>
     </div>
-    <div className="mb-4">
-    <h1 className="text-3xl font-bold mb-6 text-red-800 ">Reservas</h1>
+    <div class="mb-4">
+    <h1 class="text-3xl font-bold mb-6 text-red-800 ">Reservas</h1>
       <input
         id="inputUsuario"
         type="text"
-        className="border-gray-300 border rounded-md  w-1/3 py-2 px-3"
+        class="border-gray-300 border rounded-md  w-1/3 py-2 px-3"
         placeholder="Ingrese el usuario"
       />
     </div>
 
-<div class="overflow-auto max-h-[72vh]">
-    <table className="border-collapse min-w-full ">
+
+    <table class="border-collapse w-full">
       <thead>
         <tr>
-          <th className="border border-gray-300 px-4 py-2 w-1/4 ">Cliente</th>
-          <th className="border border-gray-300 px-4 py-2 w-1/4">Fecha</th>
-          <th className="border border-gray-300 px-4 py-2 w-1/4">Sede</th>
-          <th className="border border-gray-300 px-4 py-2 w-1/4">N°Sillas</th>
+          <th class="border border-gray-300 px-4 py-2 w-1/3 ">Hora</th>
+          <th class="border border-gray-300 px-4 py-2 w-1/3">Cantidad</th>
+          <th class="border border-gray-300 px-4 py-2 w-1/3">
+            Número de mesa
+          </th>
         </tr>
       </thead>
-      <tbody  className="">
+      <tbody>
         {/* <!-- Aquí se pueden agregar filas dinámicamente con JavaScript --> */}
-
-            <ListadoReservas className=""/>     
-      
+        <tr>
+                  <td class="border border-gray-300 px-4 py-2">10:00 AM</td>
+                  <td class="border border-gray-300 px-4 py-2">4</td>
+                  <td class="border border-gray-300 px-4 py-2">1</td>
+              </tr>
+              <tr>
+                  <td class="border border-gray-300 px-4 py-2">12:30 PM</td>
+                  <td class="border border-gray-300 px-4 py-2">2</td>
+                  <td class="border border-gray-300 px-4 py-2">3</td>
+              </tr>
+              <tr>
+                  <td class="border border-gray-300 px-4 py-2">2:45 PM</td>
+                  <td class="border border-gray-300 px-4 py-2">3</td>
+                  <td class="border border-gray-300 px-4 py-2">2</td>
+              </tr>
       </tbody>
     </table>
-  </div>
   </div>
   )
 }
