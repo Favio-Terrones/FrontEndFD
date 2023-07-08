@@ -14,33 +14,49 @@ import Sedes from './components/gerente/Sedes'
 import Reportes from './components/gerente/Reportes'
 import AgregarPlatillo from "./components/administrador/AgregarPlatillo"
 
+import { AuthProvider } from "./context/AuthProvider"
+import { PlatillosProvider } from "./context/PlatillosProvider"
+import { ReservasProvider } from "./context/ReservasProvider"
+
 const App = () => {
+
   return (
       <>
-         <BrowserRouter>
-              <Routes>
-                   <Route path="/"  element={<Login/>}/>
-                   <Route path="administrador" element={<LayoutAdministrador/>}>
-                        <Route path="platillos" element={<AdministrarPlatillos/>}/>
-                        <Route path="mesas" element={<AdministradorMesas/>}/>
-                        <Route path="reservas" element={<VisualizarReservas/>}/>
-                        <Route path="est-reservas" element={<RevisarEstadisticaReserva/>}/>
-                        <Route path="est-platillos" element={<RevisarEstadisticaPlatillo/>}/>
-                        <Route path="agregar-platillo" element={<AgregarPlatillo/>}/>
+           <BrowserRouter>
+                <AuthProvider>
+                 <PlatillosProvider>
+                 <ReservasProvider>
+                 <Routes>
 
-                      
-                         
-                   </Route>
-                   <Route path="gerente" element={<LayoutGerente/>}>
-                        <Route path="reg-administrador" element={<RegistrarAdministrador/>}/>
-                        <Route path="administradores" element={<Administradores/>}/>
-                        <Route path="reg-sedes" element={<RegistrarSede/>}/>
-                        <Route path="sedes" element={<Sedes/>}/>
-                        <Route path="reportes" element={<Reportes/>}/>
- 
-                   </Route>
-                  
-              </Routes>
+                         {/* RUTA PUBLICA */}
+                         <Route path="/"  element={<Login/>}/>
+
+                         {/* RUTAS ADMINISTRADOR  PROTEGIDA*/}
+
+                         <Route path="/administrador" element={<LayoutAdministrador/>}>
+                                   <Route index element={<AdministrarPlatillos/>}/>
+                                   <Route path="reservas" element={<VisualizarReservas/>}/>
+                                   <Route path="est-reservas" element={<RevisarEstadisticaReserva/>}/>
+                                   <Route path="est-platillos" element={<RevisarEstadisticaPlatillo/>}/>
+                                   <Route path="agregar-platillo" element={<AgregarPlatillo/>}/>
+                         </Route>
+                          
+
+                          {/* RUTAS GERENTE  */}
+                         <Route path="gerente" element={<LayoutGerente/>}>
+                              <Route path="reg-administrador" element={<RegistrarAdministrador/>}/>
+                              <Route path="administradores" element={<Administradores/>}/>
+                              <Route path="reg-sedes" element={<RegistrarSede/>}/>
+                              <Route path="sedes" element={<Sedes/>}/>
+                              <Route path="reportes" element={<Reportes/>}/>
+          
+                         </Route>   
+
+
+                   </Routes> 
+                   </ReservasProvider>
+                 </PlatillosProvider> 
+             </AuthProvider>
          </BrowserRouter>
       </>
   )

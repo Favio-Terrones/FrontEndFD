@@ -32,7 +32,7 @@ const RegistrarAdministrador = () => {
 
     <form onSubmit={handleSubmit} className="mx-10 mt-20 ">
     
-      <div className="flex grid grid-cols-2 gap-4 mt-10">
+      <div className=" grid grid-cols-2 gap-4 mt-10">
         <div>
           <label htmlFor="nombre" className="block mb-2 ">
             Nombre:

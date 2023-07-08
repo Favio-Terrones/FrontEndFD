@@ -1,6 +1,6 @@
 const AdministradorMesas = () => {
   return (
-    <div class="mx-auto w-full p-8">
+    <div className="mx-auto w-full p-8">
    
       <div className="">
         <h2 className="text-right my-2 text-2xl text-red-800  mr-10">
@@ -10,38 +10,38 @@ const AdministradorMesas = () => {
           Pasta & Grill
         </h1>
       </div>
-      <div class="mb-4">
-      <h1 class="text-3xl font-bold mb-6 text-red-800 ">Administrador de Mesas</h1>
-        <label for="inputMesa" class="block font-medium">
+      <div className="mb-4">
+      <h1 className="text-3xl font-bold mb-6 text-red-800 ">Administrador de Mesas</h1>
+        <label htmlFor="inputMesa" className="block font-medium">
           Número de mesa:
         </label>
         <input
           id="inputMesa"
           type="text"
-          class="border-gray-300 border rounded-md  w-1/3 py-2 px-3"
+          className="border-gray-300 border rounded-md  w-1/3 py-2 px-3"
           placeholder="Ingrese el número de mesa"
         />
       </div>
 
-      <div class="mb-4">
-        <label for="inputCantidad" class="block font-medium">
+      <div className="mb-4">
+        <label htmlFor="inputCantidad" className="block font-medium">
           Cantidad:
         </label>
         <input
           id="inputCantidad"
           type="number"
-          class="border-gray-300 border rounded-md  w-1/3 py-2 px-3"
+          className="border-gray-300 border rounded-md  w-1/3 py-2 px-3"
           placeholder="Ingrese la cantidad"
           min="0"
         />
       </div>
 
-      <table class="border-collapse w-full">
+      <table className="border-collapse w-full">
         <thead>
           <tr>
-            <th class="border border-gray-300 px-4 py-2 w-1/3 ">Hora</th>
-            <th class="border border-gray-300 px-4 py-2 w-1/3">Cantidad</th>
-            <th class="border border-gray-300 px-4 py-2 w-1/3">
+            <th className="border border-gray-300 px-4 py-2 w-1/3 ">Hora</th>
+            <th className="border border-gray-300 px-4 py-2 w-1/3">Cantidad</th>
+            <th className="border border-gray-300 px-4 py-2 w-1/3">
               Número de mesa
             </th>
           </tr>
@@ -49,19 +49,19 @@ const AdministradorMesas = () => {
         <tbody>
           {/* <!-- Aquí se pueden agregar filas dinámicamente con JavaScript --> */}
           <tr>
-                    <td class="border border-gray-300 px-4 py-2">10:00 AM</td>
-                    <td class="border border-gray-300 px-4 py-2">4</td>
-                    <td class="border border-gray-300 px-4 py-2">1</td>
+                    <td className="border border-gray-300 px-4 py-2">10:00 AM</td>
+                    <td className="border border-gray-300 px-4 py-2">4</td>
+                    <td className="border border-gray-300 px-4 py-2">1</td>
                 </tr>
                 <tr>
-                    <td class="border border-gray-300 px-4 py-2">12:30 PM</td>
-                    <td class="border border-gray-300 px-4 py-2">2</td>
-                    <td class="border border-gray-300 px-4 py-2">3</td>
+                    <td className="border border-gray-300 px-4 py-2">12:30 PM</td>
+                    <td className="border border-gray-300 px-4 py-2">2</td>
+                    <td className="border border-gray-300 px-4 py-2">3</td>
                 </tr>
                 <tr>
-                    <td class="border border-gray-300 px-4 py-2">2:45 PM</td>
-                    <td class="border border-gray-300 px-4 py-2">3</td>
-                    <td class="border border-gray-300 px-4 py-2">2</td>
+                    <td className="border border-gray-300 px-4 py-2">2:45 PM</td>
+                    <td className="border border-gray-300 px-4 py-2">3</td>
+                    <td className="border border-gray-300 px-4 py-2">2</td>
                 </tr>
         </tbody>
       </table>

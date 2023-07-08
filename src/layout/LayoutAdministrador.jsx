@@ -1,7 +1,16 @@
-import { Outlet, Link } from "react-router-dom";
-import {FaRightFromBracket} from "react-icons/fa6";
+import { Outlet, Link, Navigate } from "react-router-dom";
+import { FaRightFromBracket } from "react-icons/fa6";
+import useAuth from "../hooks/useAuth";
+import useReservas from "../hooks/useReservas";
 
 const LayoutAdministrador = () => {
+  const { auth, cargando, cerrarSesion } = useAuth();
+  const {obtenerReservas,reservas} = useReservas();
+
+  if (cargando) return "Cargando...";
+
+
+
   return (
     <>
       <div className="flex h-screen ">
@@ -11,24 +20,18 @@ const LayoutAdministrador = () => {
           <ul className="my-4">
             <li>
               <Link
-                to="platillos"
+                to="/administrador"
                 className="bg-white text-lg block py-2 my-12 text-center font-semibold"
               >
                 Administrador de platillos
               </Link>
             </li>
-            <li>
-              <Link
-                to="mesas"
-                className="bg-white text-lg block py-2 my-12 text-center font-semibold"
-              >
-                Administrador de Mesas
-              </Link>
-            </li>
+
             <li>
               <Link
                 to="reservas"
                 className="bg-white text-lg block py-2 my-12 text-center font-semibold"
+                onClick={obtenerReservas}
               >
                 Visualizar Reservas
               </Link>
@@ -51,12 +54,14 @@ const LayoutAdministrador = () => {
             </li>
           </ul>
           <div className="flex my-64 items-center">
-             <h2 className="bg-white w-full text-center font-semibold py-2 ">Hola, Administrador</h2>
-             <FaRightFromBracket className="text-4xl text-white  relative left-2 cursor-pointer"/> 
+            <h2 className="bg-white w-full text-center font-semibold py-2 ">
+              Hola, Administrador
+            </h2>
+            <FaRightFromBracket className="text-4xl text-white  relative left-2 cursor-pointer" onClick={cerrarSesion}/>
           </div>
         </div>
         <div className="w-3/4 bg-gray-200 p-4">
-          <Outlet />
+          {auth?.id_usuario ? <Outlet /> : <Navigate to="/" />}
         </div>
       </div>
     </>
