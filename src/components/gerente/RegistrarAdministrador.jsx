@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import usuariosPeticiones from '../../apis/usuariosPeticiones'
+const peticiones = new usuariosPeticiones();
 
 const RegistrarAdministrador = () => {
 
@@ -10,18 +12,40 @@ const RegistrarAdministrador = () => {
   const [contraseña, setContraseña] = useState('');
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    // Aquí puedes realizar la lógica para enviar los datos del usuario al servidor
-    // por ejemplo, haciendo una solicitud HTTP a una API
-
-    // Limpia los campos del formulario después del envío
-    setNombre('');
-    setApellido('');
-    setEmail('');
-    setSede('');
-    setNombreUsuario('');
-    setContraseña('');
+    
+    
   };
+
+  const guardarUsuario = async ()=>{
+
+    let usuario = {
+        nombres : nombre,
+        apellidos : apellido,
+        usuario : nombreUsuario,
+        pass : contraseña,
+        id_sede : sede=='Chacarilla'? 1: sede=='San Isidro' ? 2  : 3
+    }
+    // console.log(usuario);
+    let respuesta = await peticiones.create(usuario);
+    
+    console.log(respuesta);
+
+    if(respuesta){
+        setNombre('');
+        setApellido('');
+        setEmail('');
+        setSede('');
+        setNombreUsuario('');
+        setContraseña('');
+        console.log("registrado con exito")
+        alert( "usuario creado correctamente")
+    }else{
+        alert( "Error en la creacion del usuario")
+
+    }
+
+  }
+
 
   return(
     <div className="mt-20 mx-10" >
@@ -85,10 +109,9 @@ const RegistrarAdministrador = () => {
           <option>
                  --Seleccionar--
               </option>
+              <option>Chacarilla</option>
               <option>San Isidro</option>
-              <option>La Molina</option>
-              <option>Miraflores</option>
-              <option>Surco</option>
+              <option>Salaverry</option>
           </select>
           
         </div>
@@ -123,6 +146,7 @@ const RegistrarAdministrador = () => {
           <button
             type="submit"
             className="mt-20 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded text-lg"
+            onClick={guardarUsuario}
           >
             Registrar Administrador
           </button>
